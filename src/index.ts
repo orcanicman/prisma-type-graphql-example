@@ -6,12 +6,13 @@ import { buildSchema } from "type-graphql";
 import { prismaContext } from "./context";
 import { RegisterResolver } from "./modules/user/Register";
 import { LoginResolver } from "./modules/user/Login";
+import { LogoutResolver } from "./modules/user/Logout";
 
 const main = async () => {
   const app = express();
 
   const schema = await buildSchema({
-    resolvers: [RegisterResolver, LoginResolver],
+    resolvers: [RegisterResolver, LoginResolver, LogoutResolver],
   });
 
   const apolloServer = new ApolloServer({

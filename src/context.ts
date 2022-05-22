@@ -7,6 +7,7 @@ export interface Context {
   req: Request;
   res: Response;
   prismaContext: { prisma: PrismaClient };
+  payload?: { userId: string };
 }
 
 export const prismaContext = {
