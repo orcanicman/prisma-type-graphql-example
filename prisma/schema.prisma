@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// outputs error
+// generator typegraphql {
+//   provider = "typegraphql-prisma"
+// }
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id String @id @default(cuid())
+  // maybe store hashed password/ email in profile but not sure what's easier.
+  email String @unique
+  password String
+  profile Profile?
+  workouts Workouts[]
+  savedExersizes Exersizes[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Profile {
+  id String @id @default(cuid())
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  name String
+  birtdate DateTime
+  weight Int
+  height Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Workouts {
+  id String @id @default(cuid())
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  exersizes Exersizes[] 
+  date DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Exersizes {
+  id String @id @default(cuid())
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  workout Workouts[]
+  name String
+  sets Sets[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Sets {
+  id String @id @default(cuid())
+  exersize Exersizes @relation(fields: [exersizeId], references: [id])
+  exersizeId String
+  reps Int 
+  weight Int 
+}
