@@ -1,7 +1,6 @@
 import argon2 from "argon2";
-import { sign } from "jsonwebtoken";
 import { Arg, Ctx, Field, Mutation, ObjectType, Resolver } from "type-graphql";
-import { createAccessToken } from "../../auth";
+import { createAccessToken } from "../../createTokens";
 import { Context } from "../../context";
 
 @ObjectType()

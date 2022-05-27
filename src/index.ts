@@ -18,7 +18,6 @@ const main = async () => {
   const apolloServer = new ApolloServer({
     schema,
     context: (req: Request, res: Response) => ({
-      // i dont know why i have to destructure these, find out why later
       ...req,
       ...res,
       prismaContext,
