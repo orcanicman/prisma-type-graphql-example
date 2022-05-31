@@ -1,18 +1,22 @@
 import { Field, ID, ObjectType } from "type-graphql";
-import { Profile } from "./Profile";
+import { User } from "./User";
 
 @ObjectType()
-export class User {
+export class Profile {
   @Field((type) => ID)
   id: string;
 
+  @Field((type) => User)
+  user: User;
+
   @Field()
-  email: string;
+  name: string;
 
-  password: string;
+  @Field()
+  weight: number;
 
-  @Field((type) => Profile)
-  profile?: Profile;
+  @Field()
+  height: number;
 
   @Field((type) => Date)
   createdAt: Date;

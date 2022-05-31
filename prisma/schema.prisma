@@ -21,8 +21,8 @@ model User {
   email String @unique
   password String
   profile Profile?
-  workouts Workouts[]
-  savedExersizes Exersizes[]
+  workouts Workout[]
+  savedExersizes Exersize[]
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
@@ -39,30 +39,30 @@ model Profile {
   updatedAt DateTime @default(now())
 }
 
-model Workouts {
+model Workout {
   id String @id @default(cuid())
   user User @relation(fields: [userId], references: [id])
   userId String
-  exersizes Exersizes[] 
+  exersizes Exersize[] 
   date DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
 
-model Exersizes {
+model Exersize {
   id String @id @default(cuid())
   user User @relation(fields: [userId], references: [id])
   userId String
-  workout Workouts[]
+  workout Workout[]
   name String
-  sets Sets[]
+  sets Set[]
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
 
-model Sets {
+model Set {
   id String @id @default(cuid())
-  exersize Exersizes @relation(fields: [exersizeId], references: [id])
+  exersize Exersize @relation(fields: [exersizeId], references: [id])
   exersizeId String
   reps Int 
   weight Int 

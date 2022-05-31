@@ -1,7 +1,11 @@
 import argon2 from "argon2";
 import { Arg, Ctx, Field, Mutation, ObjectType, Resolver } from "type-graphql";
-import { createAccessToken } from "../../createTokens";
-import { Context } from "../../context";
+import {
+  createAccessToken,
+  createRefreshToken,
+} from "../../helpers/createTokens";
+import { Context } from "../../helpers/context";
+import { sendRefreshToken } from "../../helpers/sendRefreshToken";
 
 @ObjectType()
 class LoginResponse {
@@ -31,7 +35,7 @@ export class LoginResolver {
       throw new Error("incorrect password");
     }
     // user logged in
-    ctx.res.cookie("jid", createAccessToken(user));
+    ctx.res.cookie("jid", sendRefreshToken(ctx.res, createRefreshToken(user)));
 
     return { accessToken: createAccessToken(user) };
   }
