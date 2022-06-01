@@ -1,5 +1,7 @@
 import { Field, ID, ObjectType } from "type-graphql";
+import { Exersize } from "./Exersize";
 import { Profile } from "./Profile";
+import { Workout } from "./Workout";
 
 @ObjectType()
 export class User {
@@ -11,8 +13,14 @@ export class User {
 
   password: string;
 
-  @Field((type) => Profile)
-  profile?: Profile;
+  @Field((type) => Profile, { nullable: true })
+  profile?: Profile | null;
+
+  @Field((type) => [Workout], { nullable: true })
+  workouts?: [Workout] | null;
+
+  @Field((type) => [Exersize], { nullable: true })
+  exersizes?: [Exersize] | null;
 
   @Field((type) => Date)
   createdAt: Date;

@@ -6,8 +6,8 @@ export class Profile {
   @Field((type) => ID)
   id: string;
 
-  @Field((type) => User)
-  user: User;
+  @Field((type) => User, { nullable: true })
+  user?: User | null;
 
   @Field()
   name: string;

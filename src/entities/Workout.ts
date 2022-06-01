@@ -7,11 +7,11 @@ export class Workout {
   @Field((type) => ID)
   id: string;
 
-  @Field()
+  @Field((type) => User)
   user: User;
 
-  @Field((type) => [Exersize], { complexity: 2 })
-  exersizes: Exersize[];
+  @Field((type) => [Exersize], { nullable: true })
+  exersizes?: Exersize[] | null;
 
   @Field((type) => Date)
   date: Date;
