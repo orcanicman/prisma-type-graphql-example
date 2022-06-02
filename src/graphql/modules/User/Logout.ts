@@ -1,7 +1,7 @@
 import { Ctx, Mutation, Query, Resolver, UseMiddleware } from "type-graphql";
-import { Context } from "../../helpers/context";
-import { sendRefreshToken } from "../../helpers/sendRefreshToken";
-import { isAuth } from "../../middleware/isAuth";
+import { Context } from "../../../helpers/context";
+import { sendRefreshToken } from "../../../helpers/sendRefreshToken";
+import { isAuth } from "../../../middleware/isAuth";
 
 @Resolver()
 export class LogoutResolver {

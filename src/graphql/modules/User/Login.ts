@@ -3,9 +3,9 @@ import { Arg, Ctx, Field, Mutation, ObjectType, Resolver } from "type-graphql";
 import {
   createAccessToken,
   createRefreshToken,
-} from "../../helpers/createTokens";
-import { Context } from "../../helpers/context";
-import { sendRefreshToken } from "../../helpers/sendRefreshToken";
+} from "../../../helpers/createTokens";
+import { Context } from "../../../helpers/context";
+import { sendRefreshToken } from "../../../helpers/sendRefreshToken";
 
 @ObjectType()
 class LoginResponse {

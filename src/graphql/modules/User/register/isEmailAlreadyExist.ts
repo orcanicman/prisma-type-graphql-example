@@ -5,7 +5,7 @@ import {
   ValidatorConstraintInterface,
   ValidationArguments,
 } from "class-validator";
-import { prismaContext } from "../../../helpers/context";
+import { prismaContext } from "../../../../helpers/context";
 
 @ValidatorConstraint({ async: true })
 export class IsEmailAlreadyExistConstraint

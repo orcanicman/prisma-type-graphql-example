@@ -9,8 +9,8 @@ import {
 } from "type-graphql";
 import { User } from "../../entities/User";
 import { Workout } from "../../entities/Workout";
-import { Context } from "../../helpers/context";
-import { isAuth } from "../../middleware/isAuth";
+import { Context } from "../../../helpers/context";
+import { isAuth } from "../../../middleware/isAuth";
 import { AddWorkoutInput } from "./addWorkout/AddWorkoutInput";
 
 @Resolver(Workout)
