@@ -53,7 +53,7 @@ model Exersize {
   id String @id @default(cuid())
   user User @relation(fields: [userId], references: [id])
   userId String
-  workout Workout[]
+  workouts Workout[]
   name String
   sets Set[]
   createdAt DateTime @default(now())

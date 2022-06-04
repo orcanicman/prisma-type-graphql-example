@@ -12,6 +12,7 @@ import { Workout } from "../../entities/Workout";
 import { Context } from "../../../helpers/context";
 import { isAuth } from "../../../middleware/isAuth";
 import { AddWorkoutInput } from "./addWorkout/AddWorkoutInput";
+import { Exersize } from "../../entities/Exersize";
 
 @Resolver(Workout)
 export class WorkoutResolver {
@@ -24,6 +25,20 @@ export class WorkoutResolver {
         },
       })
       .user();
+  }
+
+  @FieldResolver()
+  exersizes(
+    @Root() workout: Workout,
+    @Ctx() ctx: Context
+  ): Promise<Exersize[] | null> {
+    return ctx.prismaContext.prisma.workout
+      .findUnique({
+        where: {
+          id: workout.id,
+        },
+      })
+      .exersizes();
   }
 
   @Mutation((returns) => Workout)

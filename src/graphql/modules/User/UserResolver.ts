@@ -10,9 +10,11 @@ import {
 } from "type-graphql";
 import { Context } from "../../../helpers/context";
 import { isAuth } from "../../../middleware/isAuth";
+import { Exersize } from "../../entities/Exersize";
 import { Profile } from "../../entities/Profile";
 import { User } from "../../entities/User";
 import { Workout } from "../../entities/Workout";
+
 @Resolver(User)
 export class UserResolver {
   @FieldResolver()
@@ -35,6 +37,20 @@ export class UserResolver {
         },
       })
       .workouts();
+  }
+
+  @FieldResolver()
+  savedExersizes(
+    @Root() workout: Workout,
+    @Ctx() ctx: Context
+  ): Promise<Exersize[] | null> {
+    return ctx.prismaContext.prisma.user
+      .findUnique({
+        where: {
+          id: workout.id,
+        },
+      })
+      .savedExersizes();
   }
 
   @Query((returns) => User)

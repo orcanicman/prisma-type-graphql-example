@@ -20,7 +20,7 @@ export class User {
   workouts?: [Workout] | null;
 
   @Field((type) => [Exersize], { nullable: true })
-  exersizes?: [Exersize] | null;
+  savedExersizes?: [Exersize] | null;
 
   @Field((type) => Date)
   createdAt: Date;

@@ -12,6 +12,7 @@ import { WorkoutResolver } from "./graphql/modules/Workout/WorkoutResolver";
 import { RefreshToken } from "./express/RefreshToken";
 import { UserResolver } from "./graphql/modules/User/UserResolver";
 import { ProfileResolver } from "./graphql/modules/User/ProfileResolver";
+import { ExersizeResolver } from "./graphql/modules/Excersizes/ExersizeResolver";
 
 const main = async () => {
   const app = express();
@@ -27,6 +28,7 @@ const main = async () => {
       WorkoutResolver,
       UserResolver,
       ProfileResolver,
+      ExersizeResolver,
     ],
   });
 

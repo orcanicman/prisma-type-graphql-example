@@ -9,16 +9,16 @@ export class Exersize {
   id: string;
 
   @Field((type) => User)
-  user: User;
+  user?: User;
 
   @Field((type) => [Workout])
-  workout: Workout[];
+  workouts?: Workout[];
 
   @Field()
   name: string;
 
   @Field((type) => [Set])
-  sets: Set[];
+  sets?: Set[];
 
   @Field((type) => Date)
   createdAt: Date;

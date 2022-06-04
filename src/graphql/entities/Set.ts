@@ -7,11 +7,8 @@ export class Set {
   @Field((type) => ID)
   id: string;
 
-  @Field((type) => [User])
-  user: User;
-
   @Field((type) => Exersize)
-  exersize: Exersize;
+  exersize?: Exersize;
 
   @Field()
   reps: number;
@@ -19,9 +16,9 @@ export class Set {
   @Field()
   weight: number;
 
-  @Field((type) => Date)
-  createdAt: Date;
+  // @Field((type) => Date)
+  // createdAt: Date;
 
-  @Field((type) => Date)
-  updatedAt: Date;
+  // @Field((type) => Date)
+  // updatedAt: Date;
 }
