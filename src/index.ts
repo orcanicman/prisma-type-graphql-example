@@ -4,12 +4,14 @@ import express, { Request, Response } from "express";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 import { prismaContext } from "./helpers/context";
-import { RegisterResolver } from "./graphql/modules/User/Register";
-import { LoginResolver } from "./graphql/modules/User/Login";
-import { LogoutResolver } from "./graphql/modules/User/Logout";
+import { RegisterResolver } from "./graphql/modules/Auth/Register";
+import { LoginResolver } from "./graphql/modules/Auth/Login";
+import { LogoutResolver } from "./graphql/modules/Auth/Logout";
 import cookieParser from "cookie-parser";
-import { WorkoutResolver } from "./graphql/modules/Workout/AddWorkout";
+import { WorkoutResolver } from "./graphql/modules/Workout/WorkoutResolver";
 import { RefreshToken } from "./express/RefreshToken";
+import { UserResolver } from "./graphql/modules/User/UserResolver";
+import { ProfileResolver } from "./graphql/modules/User/ProfileResolver";
 
 const main = async () => {
   const app = express();
@@ -23,6 +25,8 @@ const main = async () => {
       LoginResolver,
       LogoutResolver,
       WorkoutResolver,
+      UserResolver,
+      ProfileResolver,
     ],
   });
 

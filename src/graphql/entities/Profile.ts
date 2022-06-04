@@ -19,6 +19,9 @@ export class Profile {
   height: number;
 
   @Field((type) => Date)
+  birtdate: Date;
+
+  @Field((type) => Date)
   createdAt: Date;
 
   @Field((type) => Date)

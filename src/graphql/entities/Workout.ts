@@ -8,7 +8,7 @@ export class Workout {
   id: string;
 
   @Field((type) => User)
-  user: User;
+  user?: User;
 
   @Field((type) => [Exersize], { nullable: true })
   exersizes?: Exersize[] | null;

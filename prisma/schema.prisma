@@ -33,8 +33,8 @@ model Profile {
   userId String
   name String
   birtdate DateTime
-  weight Int
-  height Int
+  weight Float
+  height Float
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
@@ -65,5 +65,5 @@ model Set {
   exersize Exersize @relation(fields: [exersizeId], references: [id])
   exersizeId String
   reps Int 
-  weight Int 
+  weight Float 
 }
