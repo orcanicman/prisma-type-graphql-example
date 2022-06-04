@@ -12,7 +12,6 @@ import { isAuth } from "../../../middleware/isAuth";
 import { Profile } from "../../entities/Profile";
 import { User } from "../../entities/User";
 import { CreateProfileInput } from "./profile/CreateProfileInput";
-import { IsProfileAlreadyExist } from "./profile/isProfileAlreadyExists";
 
 @Resolver(Profile)
 export class ProfileResolver {
